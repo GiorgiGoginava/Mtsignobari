@@ -1,4 +1,6 @@
-import { useState } from "react";
+  import React, { useState, useEffect } from 'react';
+  
+
 import {
   ArrowRight, ArrowLeft, Search, Heart, Menu, X, Feather,
   ChevronRight, Clock3, CalendarDays
