@@ -1,6 +1,6 @@
   import React, { useState, useEffect } from 'react';
   
-
+import siteLogo from '../logo/mcignobari logo.png';
 import {
   ArrowRight, ArrowLeft, Search, Heart, Menu, X, Feather,
   ChevronRight, Clock3, CalendarDays
