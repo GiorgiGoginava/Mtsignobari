@@ -1,10 +1,11 @@
   import React, { useState, useEffect } from 'react';
-  
-import siteLogo from '../logo/mcignobari logo.png';
 import {
   ArrowRight, ArrowLeft, Search, Heart, Menu, X, Feather,
   ChevronRight, Clock3, CalendarDays
 } from "lucide-react";
+
+  
+
 
 const articles = [
   {
@@ -44,12 +45,12 @@ const articles = [
 
 function BrandMark() {
   return (
-    <a className="brand" href="#home" aria-label="Mtsignobari home">
+    <a className="brand" href="#home" aria-label="მწიგნობარი - ">
       <span className="brand-mark" aria-hidden="true">
-        <span className="brand-ring"><Feather size={29} strokeWidth={1.7} /></span>
+        <img src="/logo.png" alt="" width="150" height="80" />
+        <span></span>
       </span>
-      <span className="brand-copy">
-        <span className="brand-name">MTSIGNOBARI</span>
+      <span className="brand-text">
         <span className="brand-georgian">მწიგნობარი</span>
       </span>
     </a>
@@ -67,19 +68,19 @@ function Header() {
         {menuOpen ? <X size={19} /> : <Menu size={19} />}
       </button>
       <nav className={`main-nav ${menuOpen ? "is-open" : ""}`} aria-label="Main navigation">
-        <a className="nav-link active" href="#home" onClick={() => setMenuOpen(false)}>Home</a>
-        <a className="nav-link" href="#featured" onClick={() => setMenuOpen(false)}>Archive</a>
-        <a className="nav-link" href="#about" onClick={() => setMenuOpen(false)}>About</a>
+        <a className="nav-link active" href="#home" onClick={() => setMenuOpen(false)}>მთავარი</a>
+        <a className="nav-link" href="#featured" onClick={() => setMenuOpen(false)}>არქივი</a>
+        <a className="nav-link" href="#about" onClick={() => setMenuOpen(false)}>ჩვენ შესახებ</a>
       </nav>
       <div className="header-actions">
         <button className="icon-button search-button" aria-label="Search articles" onClick={() => setSearchOpen(!searchOpen)}>
           <Search size={17} />
         </button>
-        <a className="donate-button" href="#donate"><Heart size={14} /> Donate</a>
+        <a className="donate-button" href="#donate"><Heart size={14} /> მხარდაჭერა</a>
       </div>
       {searchOpen && (
         <form className="search-popover" role="search" onSubmit={(event) => { event.preventDefault(); document.querySelector("#featured")?.scrollIntoView({ behavior: "smooth" }); setSearchOpen(false); }}>
-          <label htmlFor="article-search">Search the archive</label>
+          <label htmlFor="article-search">არქივში ძებნა</label>
           <input id="article-search" type="search" placeholder="Search essays, history…" autoFocus />
           <button type="submit" aria-label="Submit search"><Search size={16} /></button>
         </form>
@@ -91,8 +92,8 @@ function Header() {
 function Hero() {
   const [slide, setSlide] = useState(0);
   const messages = [
-    { eyebrow: "A DIGITAL HOME FOR WORDS", title: <>Stories worth<br />returning to.</>, copy: <>Essays, history, and ideas preserved<br className="desktop-break" /> for thoughtful readers.</> },
-    { eyebrow: "A JOURNAL OF MEMORY", title: <>Words that<br />stay with us.</>, copy: <>Writing, history, and culture from<br className="desktop-break" /> a Georgian perspective.</> }
+    { eyebrow: "A DIGITAL HOME FOR WORDS", title: <>ნაწარმოებები,რომლებთანაც დაბრუნება ღირს<br /></>, copy: <>ნაწარმოებები, მოთხრობები, და ნოველები<br className="desktop-break" /> დაფიქრებული მკითხველებისთვის.</> },
+    { eyebrow: "A JOURNAL OF MEMORY", title: <>სიტყვები, <br />რომლებიც ჩვენთან რჩება.</>, copy: <>ნაწარმოებები<br className="desktop-break" /> ქართული პერსპექტივიდან.</> }
   ];
   const current = messages[slide];
 
@@ -105,7 +106,7 @@ function Hero() {
         <h1>{current.title}</h1>
         <p className="hero-description">{current.copy}</p>
         <span className="gold-rule" />
-        <a className="text-link" href="#featured">Explore the archive <ArrowRight size={15} /></a>
+        <a className="text-link" href="#featured">არქავის დათვალიერება<ArrowRight size={15} /></a>
       </div>
       <div className="hero-controls" aria-label="Hero slides">
         <button className="hero-arrow" onClick={() => setSlide((slide + messages.length - 1) % messages.length)} aria-label="Previous slide"><ArrowLeft size={15} /></button>
