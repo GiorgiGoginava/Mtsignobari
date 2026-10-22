@@ -63,9 +63,6 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .header-actions { display: flex; align-items: center; gap: 18px; }
 .icon-button { border: 0; background: transparent; color: var(--indigo); display: grid; place-items: center; }
 .search-button { width: 34px; height: 34px; }
-.donate-button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 39px; padding: 0 18px; background: var(--indigo); border: 1px solid var(--indigo); border-radius: 7px; color: white; text-decoration: none; font-size: 12px; font-weight: 600; transition: background .2s ease, transform .2s ease; }
-.donate-button svg { color: var(--gold); }
-.donate-button:hover { background: var(--indigo-hover); transform: translateY(-1px); }
 .mobile-menu-button { display: none; }
 .search-popover { position: absolute; right: 4%; top: calc(100% + 8px); width: min(360px, 92vw); padding: 16px; display: grid; grid-template-columns: 1fr auto; gap: 10px; background: white; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 12px 35px #1e22451a; }
 .search-popover label { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
@@ -113,38 +110,14 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 .meta-line { color: #7a858c; font-size: 9px; }
 .meta-dot { padding: 0 2px; }
 
-/* About and donation */
-.support-area { display: grid; grid-template-columns: 1fr minmax(320px, .88fr); gap: 26px; align-items: stretch; padding: 12px 4.2% 48px; }
-.about-card { position: relative; align-self: center; padding: 30px 32px 32px 0; max-width: 560px; }
-.about-icon { display: grid; place-items: center; width: 43px; height: 43px; margin-bottom: 20px; color: var(--indigo); border: 1px solid #d4af3780; border-radius: 50%; }
+/* About */
+.about-section { padding: 12px 4.2% 48px; }
+.about-card { position: relative; width: 100%; max-width: 420px; margin-inline: auto; padding: 30px 0 32px; text-align: center; }
+.about-icon { display: grid; place-items: center; width: 43px; height: 43px; margin: 0 auto 20px; color: var(--indigo); border: 1px solid #d4af3780; border-radius: 50%; }
 .about-card .mini-label { margin-bottom: 10px; font-size: 10px; }
-.about-card h2, .donation-card h2 { margin: 0; font-family: var(--serif); font-weight: 600; letter-spacing: -.035em; }
-.about-card h2 { max-width: 420px; color: var(--indigo); font-size: clamp(28px, 3vw, 38px); line-height: 1.15; }
-.about-card > p:not(.mini-label) { max-width: 450px; color: #656d74; font-size: 14px; line-height: 1.8; }
-.donation-card { padding: 25px; color: white; background: var(--indigo); border: 1px solid #34395e; border-radius: 12px; box-shadow: 0 15px 35px rgba(30,34,69,.13); }
-.donation-topline { display: flex; align-items: center; gap: 9px; margin-bottom: 13px; color: var(--gold); font-size: 10px; letter-spacing: .13em; font-weight: 700; }
-.donation-card h2 { font-size: 27px; line-height: 1.2; }
-.donation-card > p { margin: 9px 0 19px; max-width: 400px; color: #d6d8e2; font-size: 12px; line-height: 1.65; }
-.currency-tabs { display: grid; grid-template-columns: repeat(3, 1fr); padding: 4px; gap: 4px; border: 1px solid #ffffff28; border-radius: 8px; }
-.currency-tab { padding: 9px 5px; border: 1px solid transparent; border-radius: 5px; background: transparent; color: #e5e6ed; font-size: 11px; font-weight: 600; }
-.currency-tab.selected { background: var(--gold); color: var(--indigo); }
-.donation-amounts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0; }
-.amount-option { min-height: 39px; border: 1px solid #ffffff38; border-radius: 6px; background: #ffffff08; color: white; font-size: 12px; font-weight: 600; }
-.amount-option.selected { border-color: var(--gold); background: #d4af371b; color: #f3d979; }
-.custom-amount-label { display: block; margin: 12px 0 6px; color: #d6d8e2; font-size: 10px; }
-.custom-amount-wrap { display: flex; align-items: center; gap: 8px; padding: 0 12px; min-height: 39px; border: 1px solid #ffffff38; border-radius: 6px; color: var(--gold); }
-.custom-amount-wrap input { width: 100%; min-width: 0; padding: 9px 0; border: 0; outline: none; background: transparent; color: white; font-size: 12px; }
-.custom-amount-wrap input::placeholder { color: #b9bdcc; }
-.custom-amount-wrap input:focus-visible { outline: none; }
-.payment-choice { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 13px 0; }
-.payment-option { padding: 9px; border: 1px solid #ffffff38; border-radius: 6px; background: transparent; color: #e5e6ed; font-size: 11px; }
-.payment-option.chosen { border-color: var(--gold); color: #f3d979; }
-.bank-details { display: flex; flex-direction: column; gap: 7px; margin: 12px 0; padding: 12px; border: 1px solid #ffffff30; border-radius: 7px; color: #f6f5ef; font-size: 11px; overflow-wrap: anywhere; }
-.bank-details strong { color: var(--gold); }
-.bank-details small { color: #c5c8d4; line-height: 1.5; }
-.donation-submit { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 43px; margin-top: 6px; border: 0; border-radius: 6px; background: var(--gold); color: var(--indigo); font-size: 12px; font-weight: 700; transition: background .2s ease; }
-.donation-submit:hover { background: #e4c75d; }
-.donation-note { display: block; margin-top: 12px; text-align: center; color: #bfc3d1; font-size: 9px; }
+.about-card h2 { margin: 0; font-family: var(--serif); font-weight: 600; letter-spacing: -.035em; }
+.about-card h2 { color: var(--indigo); font-size: clamp(28px, 3vw, 38px); line-height: 1.15; }
+.about-card > p:not(.mini-label) { color: #656d74; font-size: 14px; line-height: 1.8; }
 
 /* Footer */
 .site-footer { padding: 30px 4.2% 20px; background: #f0eee6; border-top: 1px solid var(--border); }
@@ -173,7 +146,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
 @media (min-width: 1500px) {
   .page-shell { margin-top: 32px; }
   .hero-content { padding-left: 5%; }
-  .featured-section, .support-area, .site-footer { padding-left: 5%; padding-right: 5%; }
+  .featured-section, .about-section, .site-footer { padding-left: 5%; padding-right: 5%; }
 }
 @media (max-width: 900px) {
   .page-shell { width: min(100% - 24px, 1440px); margin: 12px auto; }
@@ -184,9 +157,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
   .hero-wash { background: linear-gradient(90deg, rgba(249,248,243,.98) 0%, rgba(249,248,243,.86) 43%, rgba(249,248,243,.16) 100%); }
   .article-grid { gap: 12px; }
   .article-card-content { padding: 11px; }
-  .support-area { grid-template-columns: 1fr; }
   .about-card { padding: 18px 0; }
-  .donation-card { max-width: 620px; }
 }
 @media (max-width: 640px) {
   .page-shell { width: 100%; margin: 0; border-radius: 0; border-left: 0; border-right: 0; }
@@ -198,7 +169,6 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
   .mobile-menu-button { display: grid; order: 3; width: 34px; height: 34px; }
   .header-actions { margin-left: auto; gap: 8px; }
   .search-button { width: 30px; }
-  .donate-button { min-height: 35px; padding: 0 10px; font-size: 11px; }
   .main-nav { display: none; position: absolute; top: calc(100% + 1px); left: 0; right: 0; padding: 12px 20px 18px; flex-direction: column; align-items: stretch; gap: 0; background: var(--paper); border-bottom: 1px solid var(--border); box-shadow: 0 12px 20px #1e22450c; }
   .main-nav.is-open { display: flex; }
   .nav-link { padding: 13px 0; font-size: 13px; }
@@ -222,11 +192,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid 
   .article-title-button h3 { font-size: 16px; }
   .article-description { min-height: 0; margin-bottom: 9px; font-size: 10px; }
   .article-meta { margin-top: auto; }
-  .support-area { padding: 4px 18px 32px; gap: 18px; }
+  .about-section { padding: 4px 18px 32px; }
   .about-card h2 { font-size: 32px; }
   .about-card > p:not(.mini-label) { font-size: 13px; }
-  .donation-card { padding: 20px 17px; }
-  .donation-card h2 { font-size: 25px; }
   .site-footer { padding: 26px 18px 18px; }
   .footer-main { align-items: flex-start; flex-direction: column; gap: 12px; }
   .footer-links { gap: 16px; margin: 20px 0; }
