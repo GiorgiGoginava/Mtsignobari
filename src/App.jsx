@@ -1,6 +1,6 @@
   import React, { useState } from 'react';
   import {
-    ArrowRight, ArrowLeft, Search, Menu, X, Feather, Clock3, CalendarDays
+    ArrowRight, ArrowLeft, Search, Menu, X, Feather
   } from "lucide-react";
 
   
@@ -9,37 +9,42 @@
 const articles = [
   {
     id: 1,
-    category: "ესე",
-    title: "წერილობითი სიტყვა და ერის მეხსიერება",
-    description: "ფიქრი იმაზე, თუ როგორ აყალიბებს წერილობითი კულტურა ჩვენს კოლექტიურ მეხსიერებას.",
-    author: "გიორგი კაპანაძე",
-    date: "20 ოქტომბერი, 2026",
-    readingTime: "კითხვის დრო: 8 წთ.",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85",
-    alt: "კავკასიონის მთათა ფენები დილის რბილ სინათლეში"
+    title: "აჭედილი სამლოცველო",
+    category: "მოთხრობა",
+    image: "/images/stories.svg",
+    alt: "მთის სოფელი და ძველი ქვის სამლოცველო",
+    author: "ვახო გოგინავა",
+    date: "23 ოქტომბერი, 2026",
+    readingTime: "5 წთ.",
+    description: "სრული ტექსტი ხელმისაწვდომია RTF ფორმატში.",
+    document: `/${encodeURIComponent("აჭედილი სამლოცველო.rtf")}`,
   },
   {
     id: 2,
-    category: "ისტორია",
-    title: "თბილისის დაკარგული ფურცლები",
-    description: "მივიწყებული ხელნაწერები, დაფარული არქივები და ისტორიები, რომლებსაც ისინი დღემდე გვიყვებიან.",
-    author: "გიორგი კაპანაძე",
-    date: "20 ოქტომბერი, 2026",
-    readingTime: "კითხვის დრო: 7 წთ.",
-    image: "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1000&q=85",
-    alt: "ძველი წიგნები და ხელნაწერები ბიბლიოთეკაში"
+    title: "ბეწვის ხიდზე მოცეკვავენი",
+    category: "მოთხრობა",
+    image: "/images/dancers-bridge.svg",
+    alt: "ორი მოცეკვავე მთის ხეობაზე გადებულ ვიწრო ხიდზე",
+    
+    author: "ვახო გოგინავა",
+    date: "23 ოქტომბერი, 2026",
+    readingTime: "7 წთ.",
+    description: "სრული ტექსტი ხელმისაწვდომია RTF ფორმატში.",
+    document: `/${encodeURIComponent("ბეწვის ხიდზე მოცეკვავენი.rtf")}`,
   },
   {
     id: 3,
-    category: "მოსაზრება",
-    title: "რა გვმართებს წარსულის წინაშე",
-    description: "პასუხისმგებლობა, მეხსიერება და მომავალი, რომელსაც ჩვენ ვქმნით.",
-    author: "გიორგი კაპანაძე",
-    date: "25 სექტემბერი, 2026",
-    readingTime: "კითხვის დრო: 6 წთ.",
-    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85",
-    alt: "მშვიდი სანაპირო ლურჯი წყლითა და შორეული ბორცვებით"
-  }
+    title: "მეომარი",
+    category: "ნოველა",
+    image: "/images/novella-warrior.svg",
+    alt: "მეომრის სილუეტი მთის ფონზე",
+    
+    author: "ვახო გოგინავა",
+    date: "23 ოქტომბერი, 2026",
+    readingTime: "6 წთ.",
+    description: "სრული ტექსტი ხელმისაწვდომია RTF ფორმატში.",
+    document: `/${encodeURIComponent("მეომარი.rtf")}`,
+  },
 ];
 
 function BrandMark() {
@@ -112,18 +117,21 @@ function Hero() {
   );
 }
 
-function ArticleCard({ article, onOpen }) {
+function ArticleCard({ article }) {
   return (
     <article className="article-card">
-      <button className="article-image-button" onClick={() => onOpen(article)} aria-label={`წაიკითხეთ: ${article.title}`}>
+      <a className="article-image-link" href={article.document} target="_blank" rel="noopener noreferrer" aria-label={`გახსენით: ${article.title}`}>
         <img className="article-image" src={article.image} alt={article.alt} loading="lazy" />
-      </button>
+      </a>
       <div className="article-card-content">
         <span className="category-tag">{article.category}</span>
-        <button className="article-title-button" onClick={() => onOpen(article)}>
+        <a className="article-title-link" href={article.document} target="_blank" rel="noopener noreferrer">
           <h3>{article.title}</h3>
-        </button>
+        </a>
         <p className="article-description">{article.description}</p>
+        <a className="article-document-link" href={article.document} target="_blank" rel="noopener noreferrer">
+          RTF დოკუმენტის გახსნა <ArrowRight size={13} />
+        </a>
         <div className="article-meta">
           <span className="author-avatar" aria-hidden="true">გ</span>
           <span className="author-details">
@@ -136,7 +144,7 @@ function ArticleCard({ article, onOpen }) {
   );
 }
 
-function FeaturedArticles({ onOpen }) {
+function FeaturedArticles() {
   return (
     <section className="featured-section" id="featured">
       <div className="section-heading-row">
@@ -144,7 +152,7 @@ function FeaturedArticles({ onOpen }) {
         <a className="view-all-link" href="#archive">ყველას ნახვა <ArrowRight size={14} /></a>
       </div>
       <div className="article-grid">
-        {articles.map((article) => <ArticleCard key={article.id} article={article} onOpen={onOpen} />)}
+        {articles.map((article) => <ArticleCard key={article.id} article={article} />)}
       </div>
     </section>
   );
@@ -161,26 +169,6 @@ function AboutSection() {
         <a className="text-link" href="#footer">პროექტის შესახებ <ArrowRight size={14} /></a>
       </article>
     </section>
-  );
-}
-
-function ArticleModal({ article, onClose }) {
-  if (!article) return null;
-  return (
-    <div className="modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <article className="article-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <button className="modal-close icon-button" onClick={onClose} aria-label="სტატიის დახურვა"><X size={19} /></button>
-        <img className="modal-image" src={article.image} alt={article.alt} />
-        <div className="modal-content">
-          <span className="category-tag">{article.category}</span>
-          <h2 id="modal-title">{article.title}</h2>
-          <div className="modal-meta"><CalendarDays size={14} /> {article.date} <span>·</span> <Clock3 size={14} /> {article.readingTime}</div>
-          <p className="modal-lede">{article.description}</p>
-          <p>სტატიის ეს ტექსტი მხოლოდ წინასწარი ვერსიაა. ჩაანაცვლეთ იგი გამოქვეყნებული ესეს ტექსტით ან თქვენი დოკუმენტის დამუშავებული ვერსიით. კითხვის გვერდზე შეინარჩუნეთ ტექსტის მოსახერხებელი სიგანე, აბზაცებს შორის საკმარისი სივრცე და თბილი, ქაღალდისფერი ფერთა გამა.</p>
-          <p>საბოლოო ვერსიაში სტატიის ტექსტი მიიღეთ თქვენი შინაარსის წყაროდან და წარმოადგინეთ სათაურების, აბზაცების, ციტატებისა და სიების შესაბამისი სემანტიკური სტრუქტურით.</p>
-        </div>
-      </article>
-    </div>
   );
 }
 
@@ -205,18 +193,15 @@ function Footer() {
 }
 
 export default function App() {
-  const [selectedArticle, setSelectedArticle] = useState(null);
-
   return (
     <div className="page-shell">
       <Header />
       <main>
         <Hero />
-        <FeaturedArticles onOpen={setSelectedArticle} />
+        <FeaturedArticles />
         <AboutSection />
       </main>
       <Footer />
-      <ArticleModal article={selectedArticle} onClose={() => setSelectedArticle(null)} />
     </div>
   );
 }
