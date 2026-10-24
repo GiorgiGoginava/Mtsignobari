@@ -3,7 +3,7 @@
     ArrowRight, ArrowLeft, Search, Menu, X, Feather
   } from "lucide-react";
 
-  
+  const publicPath = (path) => `${import.meta.env.BASE_URL}${path}`;
 
 
 const articles = [
@@ -11,39 +11,39 @@ const articles = [
     id: 1,
     title: "აჭედილი სამლოცველო",
     category: "მოთხრობა",
-    image: "/images/stories.svg",
+    image: publicPath("images/stories.svg"),
     alt: "მთის სოფელი და ძველი ქვის სამლოცველო",
     author: "ვახო გოგინავა",
     date: "23 ოქტომბერი, 2026",
     readingTime: "5 წთ.",
     description: "სრული ტექსტი ხელმისაწვდომია RTF ფორმატში.",
-    document: `/${encodeURIComponent("აჭედილი სამლოცველო.rtf")}`,
+    document: publicPath(encodeURIComponent("აჭედილი სამლოცველო.rtf")),
   },
   {
     id: 2,
     title: "ბეწვის ხიდზე მოცეკვავენი",
     category: "მოთხრობა",
-    image: "/images/dancers-bridge.svg",
+    image: publicPath("images/dancers-bridge.svg"),
     alt: "ორი მოცეკვავე მთის ხეობაზე გადებულ ვიწრო ხიდზე",
     
     author: "ვახო გოგინავა",
     date: "23 ოქტომბერი, 2026",
     readingTime: "7 წთ.",
     description: "სრული ტექსტი ხელმისაწვდომია RTF ფორმატში.",
-    document: `/${encodeURIComponent("ბეწვის ხიდზე მოცეკვავენი.rtf")}`,
+    document: publicPath(encodeURIComponent("ბეწვის ხიდზე მოცეკვავენი.rtf")),
   },
   {
     id: 3,
     title: "მეომარი",
     category: "ნოველა",
-    image: "/images/novella-warrior.svg",
+    image: publicPath("images/novella-warrior.svg"),
     alt: "მეომრის სილუეტი მთის ფონზე",
     
     author: "ვახო გოგინავა",
     date: "23 ოქტომბერი, 2026",
     readingTime: "6 წთ.",
     description: "სრული ტექსტი ხელმისაწვდომია RTF ფორმატში.",
-    document: `/${encodeURIComponent("მეომარი.rtf")}`,
+    document: publicPath(encodeURIComponent("მეომარი.rtf")),
   },
 ];
 
@@ -51,7 +51,7 @@ function BrandMark() {
   return (
     <a className="brand" href="#home" aria-label="მწიგნობარი — მთავარი გვერდი">
       <span className="brand-mark" aria-hidden="true">
-        <img src="/logo.png" alt="" width="150" height="80" />
+        <img src={publicPath("logo.png")} alt="" width="150" height="80" />
         <span></span>
       </span>
       <span className="brand-text">
